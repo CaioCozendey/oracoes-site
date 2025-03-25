@@ -1,103 +1,93 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import BackParticles from "@/components/ParticleBackground/main";
+import { useLanguage } from "./context/LanguageContext";
+import { useTheme } from "./context/ThemeContext";
+import Typewriter from "@/components/maquina_de_escrever/main";
+
+const About = () => {
+  const { darkMode } = useTheme();
+  const { language } = useLanguage();
+
+  // Conteúdo multilíngue
+  const content = {
+    title: {
+      en: "RPA Developer",
+      pt: "Desenvolvedor RPA"
+    },
+    name: {
+      en: "Caio Dias Cozendey",
+      pt: "Caio Dias Cozendey"
+    },
+    description: {
+      en: "I automate processes with RPA using Python, Playwright, and Selenium, building intelligent workflows that integrate systems and optimize operations. As a Frontend Developer, I craft modern interfaces with React, Next.js, and TypeScript, combining responsive design (Tailwind CSS) with exceptional performance for memorable digital experiences.",
+      pt: "Automatizo processos com RPA usando Python, Playwright e Selenium, criando fluxos inteligentes que integram sistemas e otimizam operações. Como desenvolvedor Frontend, crio interfaces modernas com React, Next.js e TypeScript, combinando design responsivo (Tailwind CSS) com performance excepcional para experiências digitais memoráveis."
+    },
+    project: {
+      en: "Discuss for Project:",
+      pt: "Discutir Projeto:"
+    },
+    cta: {
+      en: "WhatsApp",
+      pt: "WhatsApp"
+    }
+  };
+
+  const getText = (key: keyof typeof content) => content[key][language];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative min-h-screen">
+      {/* Background com partículas */}
+      <BackParticles />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Conteúdo principal */}
+      <div className={`relative z-10 transition-colors duration-300 ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-3xl mx-auto backdrop-blur-sm bg-opacity-80 rounded-xl p-8" >
+            {/* Cabeçalho */}
+            <div className="mb-12">
+              <h2 className={`text-xl font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                {getText('title')}
+              </h2>
+              <h1 className="text-4xl font-bold mt-2">
+                {getText('name')}
+              </h1>
+            </div>
+
+            {/* Descrição */}
+            <div className="mb-12">
+              <p className="text-lg leading-relaxed">
+                <Typewriter
+                  text={getText('description')}
+                  speed={25}
+                  delay={1000}
+                  key={language}
+                />
+              </p>
+            </div>
+
+            {/* Separador */}
+            <div className={`h-px w-full mb-12 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`} />
+
+            {/* Chamada para ação */}
+            <div className="space-y-4">
+              <h3 className={`text-lg font-medium ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                {getText('project')}
+              </h3>
+              <a
+                href="https://wa.me/SEUNUMERO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-block px-6 py-3 rounded-lg font-medium transition-colors ${darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white`}
+              >
+                {getText('cta')}
+              </a>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
+
+export default About;
