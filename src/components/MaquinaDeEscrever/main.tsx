@@ -7,19 +7,28 @@ interface TypewriterProps {
   speed?: number;
   delay?: number;
   className?: string;
-  key?: string | number; // Adicione esta linha
+  resetTrigger?: string | number; // Substituímos 'key' por 'resetTrigger'
 }
 
-const Typewriter = ({ text, speed = 50, delay = 0, className = '', key }: TypewriterProps) => {
+const Typewriter = ({ 
+  text, 
+  speed = 50, 
+  delay = 0, 
+  className = '', 
+  resetTrigger 
+}: TypewriterProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDelayed, setIsDelayed] = useState(delay > 0);
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<NodeJS.Timeout | null>(null); // Corrigido com valor inicial null
 
   // Efeito principal para limpar e reiniciar a animação
   useEffect(() => {
     // Limpa qualquer timeout existente
-    clearTimeout(timerRef.current);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    
     setDisplayedText('');
     setCurrentIndex(0);
     setIsDelayed(delay > 0);
@@ -32,8 +41,12 @@ const Typewriter = ({ text, speed = 50, delay = 0, className = '', key }: Typewr
       setIsDelayed(false);
     }
 
-    return () => clearTimeout(timerRef.current);
-  }, [text, delay, key]); // Adicione key às dependências
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, [text, delay, resetTrigger]);
 
   // Efeito para animação de digitação
   useEffect(() => {
@@ -44,7 +57,11 @@ const Typewriter = ({ text, speed = 50, delay = 0, className = '', key }: Typewr
       setCurrentIndex(prev => prev + 1);
     }, speed);
 
-    return () => clearTimeout(timerRef.current);
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
   }, [currentIndex, text, speed, isDelayed]);
 
   return <span className={`inline-block ${className}`}>{displayedText}</span>;

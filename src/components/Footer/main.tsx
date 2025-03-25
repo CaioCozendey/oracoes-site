@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/app/context/LanguageContext";
 import { useTheme } from "@/app/context/ThemeContext";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Smartphone  } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -71,7 +71,7 @@ const Footer = () => {
     {
       name: "WhatsApp",
       url: "https://wa.me/5522998562641",
-      icon: <Phone size={20} />,
+      icon: <Smartphone size={20} />,
     }
   ];
 
@@ -134,7 +134,7 @@ const Footer = () => {
                     darkMode ? 'hover:text-primary-blue' : 'hover:text-primary-blue'
                   }`}
                 >
-                  <Phone className="mr-2 flex-shrink-0" size={16} /> 
+                  <Smartphone className="mr-2 flex-shrink-0" size={16} /> 
                   (22) 99856-2641
                 </Link>
               </li>

@@ -3,7 +3,7 @@
 import BackParticles from "@/components/ParticleBackground/main";
 import { useLanguage } from "./context/LanguageContext";
 import { useTheme } from "./context/ThemeContext";
-import Typewriter from "@/components/maquina_de_escrever/main";
+import Typewriter from "@/components/MaquinaDeEscrever/main";
 
 const About = () => {
   const { darkMode } = useTheme();
@@ -59,8 +59,9 @@ const About = () => {
               <p className="text-lg leading-relaxed">
                 <Typewriter
                   text={getText('description')}
-                  speed={25}
+                  speed={20}
                   delay={1000}
+                  resetTrigger={language}
                   key={language}
                 />
               </p>
