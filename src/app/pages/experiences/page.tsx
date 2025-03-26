@@ -4,6 +4,7 @@ import { useLanguage } from "@/app/context/LanguageContext";
 import { useTheme } from "@/app/context/ThemeContext"; // Importe o ThemeContext
 import { ExperienceCard } from "@/components/cards/ExperienceCard";
 import BackParticles from "@/components/ParticleBackground/main";
+import { formatExperiencePeriod } from "@/utils/date/dataUtils";
 
 const Experiences = () => {
   const { language } = useLanguage();
@@ -16,26 +17,26 @@ const Experiences = () => {
     autoGlass: {
       logo: "/icons/logo/autoglass.png",
       skills: ["Python", "Selenium", "PlayWright", "Pandas", "Git"],
-      href: "/experience/autoglass",
-      logoClass: "bg-gray-200"
+      href: "/experiences/autoglass",
+      logoClass: "bg-gray-200 max-w-24"
     },
     treeInova: {
       logo: "/icons/logo/treeinova.png",
       skills: ["Python", "Selenium", "Tesseract", "Pyautogui", "Pandas", "Git"],
-      href: "/experience/treeinova",
-      logoClass: "bg-gray-200"
+      href: "/experiences/treeinova",
+      logoClass: "bg-gray-200 max-w-24"
     },
     sogamax: {
       logo: "/icons/logo/sogamax.png",
       skills: ["Python", "Selenium", "Pandas", "Reactjs", "Tailwind", "Typescript"],
-      href: "/experience/sogamax",
-      logoClass: "bg-gray-200"
+      href: "/experiences/sogamax",
+      logoClass: "bg-gray-200 max-w-24"
     },
     highJump: {
       logo: "/icons/logo/highjump.png",
-      skills: ["Python", "Selenium", "Pandas", "Reactjs", "Tailwind", "Typescript"],
-      href: "/experience/sogamax",
-      logoClass: "bg-gray-200"
+      skills: ["Javascript", "Roberty Studio", "RPA"],
+      href: "/experiences/highjump",
+      logoClass: "bg-gray-200 max-w-24"
     }
   };
 
@@ -45,28 +46,45 @@ const Experiences = () => {
       {
         ...commonExperienceProps.autoGlass,
         company: "AutoGlass Group",
-        period: "Mar 2025 - Present",
+        period: formatExperiencePeriod('2025-03-16',{
+          language: 'en'
+        }),
         position: "RPA Developer",
         description: "Automated business processes using Python and Playwright, reducing manual workload by 60% and improving operational efficiency.",
       },
       {
         ...commonExperienceProps.treeInova,
         company: "Tree Iova",
-        period: "Oct 2023 - Jan 2023",
+        period: formatExperiencePeriod(
+          '2023-10-05', {
+          isCurrent: false,
+          language: 'en',
+          endDate: '2025-01-24'
+        }),
         position: "RPA Developer",
         description: "Automated business processes using Python, Selenium and Pyautogui, reducing manual workload by 60% and improving operational efficiency.",
       },
       {
         ...commonExperienceProps.sogamax,
         company: "Sogamax Distribuidora",
-        period: "Set 2023 - Oct 2023 (1 month)",
+        period: formatExperiencePeriod(
+          '2023-09-05', {
+          isCurrent: false,
+          language: 'en',
+          endDate: '2023-10-10'
+        }),
         position: "IT Intern",
         description: "Developed automation solutions with Python and Selenium while contributing to web development projects using React. Enhanced operational efficiency by 40% through RPA bots and improved user interfaces.",
       },
       {
         ...commonExperienceProps.highJump,
         company: "High Jump",
-        period: "Set 2023 - Oct 2023 (1 month)",
+        period: formatExperiencePeriod(
+          '2022-08-01', {
+          isCurrent: false,
+          language: 'en',
+          endDate: '2023-04-15'
+        }),
         position: "IT Intern",
         description: "Developed automation solutions with Python and Selenium while contributing to web development projects using React. Enhanced operational efficiency by 40% through RPA bots and improved user interfaces.",
       }
@@ -75,28 +93,45 @@ const Experiences = () => {
       {
         ...commonExperienceProps.autoGlass,
         company: "Grupo AutoGlass",
-        period: "Jan 2025 - Atual",
+        period: formatExperiencePeriod('2025-03-16',{
+          language: 'pt'
+        }),
         position: "Desenvolvedor RPA",
         description: "Automatizei processos empresariais utilizando Python e Playwright, reduzindo a carga de trabalho manual em 60% e melhorando a eficiência operacional.",
       },
       {
         ...commonExperienceProps.treeInova,
         company: "Tree Inova",
-        period: "Out 2023 - Jan 2025",
+        period: formatExperiencePeriod(
+          '2023-10-05', {
+          isCurrent: false,
+          language: 'pt',
+          endDate: '2025-01-24'
+        }),
         position: "Desenvolvedor RPA",
         description: "Automatizei processos empresariais utilizando Python, Selenium e Pyautogui, reduzindo a carga de trabalho manual em 60% e melhorando a eficiência operacional.",
       },
       {
         ...commonExperienceProps.sogamax,
         company: "Sogamax Distribuidora",
-        period: "Set 2023 - Out 2023 (1 mês)",
+        period: formatExperiencePeriod(
+          '2023-09-05', {
+          isCurrent: false,
+          language: 'pt',
+          endDate: '2023-10-10'
+        }),
         position: "Desenvolvedor RPA",
         description: "Desenvolvi soluções de automação com Python e Selenium enquanto contribuía para projetos web com React. Aumentei a eficiência operacional em 40% através de bots RPA e melhorei interfaces de usuário.",
       },
       {
         ...commonExperienceProps.highJump,
         company: "High Jump",
-        period: "Set 2023 - Out 2023 (1 mês)",
+        period: formatExperiencePeriod(
+          '2022-08-01', {
+          isCurrent: false,
+          language: 'pt',
+          endDate: '2023-04-15'
+        }),
         position: "Desenvolvedor RPA",
         description: "Desenvolvi soluções de automação com Python e Selenium enquanto contribuía para projetos web com React. Aumentei a eficiência operacional em 40% através de bots RPA e melhorei interfaces de usuário.",
       }

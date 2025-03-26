@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import Navbar from "@/components/Navbar/main";
 import Footer from "@/components/Footer/main";
+import BackParticles from "@/components/ParticleBackground/main";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LanguageProvider>
+            <BackParticles />
             <Navbar />
             {children}
             <Footer />
