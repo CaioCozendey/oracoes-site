@@ -1,8 +1,13 @@
+import UnderConstruction from "@/components/page/doing/page";
+import { MinimalLayout } from "@/components/LayoutWrapper/page";
+
 const Projects = () => {
   return (
-    <div>
-      Projetos
-    </div>
+    <MinimalLayout>
+      <div>
+        < UnderConstruction />
+      </div>
+    </MinimalLayout>
   )
 }
 

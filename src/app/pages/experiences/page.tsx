@@ -17,27 +17,33 @@ const Experiences = () => {
     autoGlass: {
       logo: "/icons/logo/autoglass.png",
       skills: ["Python", "Selenium", "PlayWright", "Pandas", "Git"],
-      href: "/experiences/autoglass",
+      href: "/pages/experiences/autoglass",
       logoClass: "bg-gray-200 max-w-24"
     },
     treeInova: {
       logo: "/icons/logo/treeinova.png",
-      skills: ["Python", "Selenium", "Tesseract", "Pyautogui", "Pandas", "Git"],
-      href: "/experiences/treeinova",
+      skills: ["Python", "Selenium", "Tesseract", "Pyautogui", "Pandas", "Git", "Roberty Studio"],
+      href: "/pages/experiences/treeinova",
       logoClass: "bg-gray-200 max-w-24"
     },
     sogamax: {
       logo: "/icons/logo/sogamax.png",
       skills: ["Python", "Selenium", "Pandas", "Reactjs", "Tailwind", "Typescript"],
-      href: "/experiences/sogamax",
+      href: "/pages/experiences/sogamax",
       logoClass: "bg-gray-200 max-w-24"
     },
     highJump: {
       logo: "/icons/logo/highjump.png",
       skills: ["Javascript", "Roberty Studio", "RPA"],
-      href: "/experiences/highjump",
+      href: "/pages/experiences/highjump",
       logoClass: "bg-gray-200 max-w-24"
-    }
+    },
+    simplea: {
+      logo: "/icons/logo/simplea.png",
+      skills: ["Javascript", "Roberty Studio", "RPA", "SQL", "HTML5"],
+      href: "/pages/experiences/simplea",
+      logoClass: "bg-gray-200 max-w-24"
+    },
   };
 
   // Dados variaveis
@@ -51,6 +57,15 @@ const Experiences = () => {
         }),
         position: "RPA Developer",
         description: "Automated business processes using Python and Playwright, reducing manual workload by 60% and improving operational efficiency.",
+      },
+      {
+        ...commonExperienceProps.simplea,
+        company: "Simplea",
+        period: formatExperiencePeriod('2025-03-31',{
+          language: 'en'
+        }),
+        position: "RPA Developer",
+        description: "Automated business processes using Roberty Studio (A Low Code RPA Plataform) and Javascript, reducing manual workload by 60% and improving operational efficiency.",
       },
       {
         ...commonExperienceProps.treeInova,
@@ -86,7 +101,7 @@ const Experiences = () => {
           endDate: '2023-04-15'
         }),
         position: "IT Intern",
-        description: "Developed automation solutions with Python and Selenium while contributing to web development projects using React. Enhanced operational efficiency by 40% through RPA bots and improved user interfaces.",
+        description: "Automated business processes using Roberty Studio (A Low Code RPA Plataform) and Javascript, reducing manual workload by 60% and improving operational efficiency.",
       }
     ],
     pt: [
@@ -98,6 +113,15 @@ const Experiences = () => {
         }),
         position: "Desenvolvedor RPA",
         description: "Automatizei processos empresariais utilizando Python e Playwright, reduzindo a carga de trabalho manual em 60% e melhorando a eficiência operacional.",
+      },
+      {
+        ...commonExperienceProps.simplea,
+        company: "Simplea",
+        period: formatExperiencePeriod('2025-03-31',{
+          language: 'pt'
+        }),
+        position: "Desenvolvedor RPA",
+        description: "Automatizei processos empresariais utilizando Roberty Studio (Uma plataforma Low code RPA) e Javascript, reduzindo a carga de trabalho manual em 60% e melhorando a eficiência operacional.",
       },
       {
         ...commonExperienceProps.treeInova,
@@ -133,7 +157,7 @@ const Experiences = () => {
           endDate: '2023-04-15'
         }),
         position: "Desenvolvedor RPA",
-        description: "Desenvolvi soluções de automação com Python e Selenium enquanto contribuía para projetos web com React. Aumentei a eficiência operacional em 40% através de bots RPA e melhorei interfaces de usuário.",
+        description: "Automatizei processos empresariais utilizando Roberty Studio (Uma plataforma Low code RPA) e Javascript, reduzindo a carga de trabalho manual em 60% e melhorando a eficiência operacional.",
       }
     ]
   };

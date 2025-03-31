@@ -45,7 +45,19 @@ const Navbar = () => {
       en: 'Techs',
       pt: 'Techs',
       path: '/pages/techs'
-    }
+    },
+    {
+      name: 'Components',
+      en: 'Components',
+      pt: 'Componentes',
+      path: '/pages/components'
+    },
+    {
+      name: 'Tap',
+      en: 'Tap',
+      pt: 'Tap',
+      path: '/pages/tap'
+    },
   ];
 
   const languages = [

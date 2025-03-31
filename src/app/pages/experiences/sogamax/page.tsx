@@ -11,67 +11,59 @@ import { formatExperiencePeriod } from '@/utils/date/dataUtils';
 // Multilingual content
 const content = {
   en: {
-    name: "Tree Inova",
-    title: 'Tree Inova | RPA Developer Experience',
-    position: 'RPA Developer',
+    name: "Sogamax Distribuidora",
+    title: 'Sogamax Distribuidora | IT Intern',
+    position: 'IT Intern',
     period: formatExperiencePeriod(
-      '2023-10-01',
-      {
-        isCurrent: false,
-        endDate: "2025-01-24",
-        language: "en",
-      }
-    ),
+      '2023-09-05', {
+      isCurrent: false,
+      language: 'en',
+      endDate: '2023-10-10'
+    }),
     achievements: 'Achievements',
     achievementsList: [
-      'Automated 7+ business processes using Python and Selenium, reducing manual workload by 99%',
-      'Developed a document processing system that improved data accuracy by 45%',
-      'Collaborated with cross-functional teams to identify automation opportunities',
-      'Reduced process execution time from hours to minutes'
+      'Developed and performed maintenance on web applications for integration with other automations.',
+      'Collaborated with multidisciplinary teams to identify automation opportunities',
+      'Reduced process execution time from hours to minutes',
     ],
-    responsibilities: 'Key Responsibilities',
+    responsibilities: 'Responsibilities',
     responsibilitiesList: [
-      'Design, develop, and maintain RPA solutions for various departments',
+      'Design, develop and maintain RPA solutions for various departments',
       'Analyze business processes to identify automation potential',
-      'Create technical documentation and user guides',
+      'Develop and maintain web applications',
       'Monitor and troubleshoot automated workflows',
-      'Mentor junior team members in RPA best practices'
     ],
     technologies: 'Technologies Used',
     metrics: 'Key Metrics',
     metricsList: {
-      processes: 'Processes Automated',
-      timeSavings: 'Time Savings',
+      processes: 'Automated Processes',
+      timeSavings: 'Time Reduction',
       errorReduction: 'Error Reduction',
     },
-    back: '← Back to Experience'
+    back: '← Back to Experiences'
   },
   pt: {
-    name: "Tree Inova",
-    title: 'Tree Inova | Experiência como Desenvolvedor RPA',
-    position: 'Desenvolvedor RPA',
+    name: "Sogamax Distribuidora",
+    title: 'Sogamax Distribuidora | Estagiário de TI',
+    position: 'Estagiário de TI',
     period: formatExperiencePeriod(
-      '2023-10-01',
-      {
-        isCurrent: false,
-        endDate: "2025-01-24",
-        language: "pt",
-      }
-    ),
+      '2023-09-05', {
+      isCurrent: false,
+      language: 'pt',
+      endDate: '2023-10-10'
+    }),
     achievements: 'Conquistas',
     achievementsList: [
-      'Automatizei 7+ processos empresariais usando Python e Selenium, reduzindo carga manual em 99%',
-      'Desenvolvi sistema de processamento de documentos que melhorou precisão de dados em 45%',
+      'Desenvolvi e realizei manunteções em aplicações Web para integração com outras automações.',
       'Colaborei com equipes multidisciplinares para identificar oportunidades de automação',
-      'Reduzi tempo de execução de processos de horas para minutos'
+      'Reduzi tempo de execução de processos de horas para minutos',
     ],
     responsibilities: 'Responsabilidades',
     responsibilitiesList: [
       'Projetar, desenvolver e manter soluções RPA para diversos departamentos',
       'Analisar processos de negócios para identificar potencial de automação',
-      'Criar documentação técnica e manuais de usuário',
+      'Desenvolver e fazer manutenção em aplicações Web',
       'Monitorar e solucionar problemas em fluxos de trabalho automatizados',
-      'Orientar membros juniores da equipe em melhores práticas de RPA'
     ],
     technologies: 'Tecnologias Utilizadas',
     metrics: 'Métricas Principais',
@@ -88,14 +80,15 @@ const content = {
 const technologies = [
   { name: 'Python', url: 'https://www.python.org' },
   { name: 'Selenium', url: 'https://www.selenium.dev' },
-  { name: 'Pyautogui', url: 'https://pyautogui.readthedocs.io/' },
-  { name: 'Tesseract', url: 'https://pyautogui.readthedocs.io/' },
   { name: 'Pandas', url: 'https://pandas.pydata.org' },
+  { name: 'Nextjs', url: 'https://nextjs.org/' },
+  { name: 'Typescript', url: 'https://www.typescriptlang.org/' },
+  { name: 'Tailwind', url: 'https://tailwindcss.com/' },
   { name: 'Git', url: 'https://git-scm.com' },
   { name: 'SQL & No SQL' },
 ];
 
-const Treeinova = () => {
+const Sogamax = () => {
   const { darkMode } = useTheme();
   const { language } = useLanguage();
   const t = content[language];
@@ -119,8 +112,8 @@ const Treeinova = () => {
         <header className={`flex flex-col md:flex-row gap-6 items-start md:items-center mb-8 p-6 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-50'}`}>
           <div className={`p-3 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
             <Image
-              src="/icons/logo/treeinova.png"
-              alt="AutoGlass Group Logo"
+              src="/icons/logo/sogamax.png"
+              alt="Sogamax Logo"
               width={80}
               height={80}
               className="object-contain"
@@ -191,9 +184,9 @@ const Treeinova = () => {
                 {t.metrics}
               </h3>
               <div className={`space-y-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                <p><span className="font-medium">{t.metricsList.processes}:</span> 7+</p>
-                <p><span className="font-medium">{t.metricsList.timeSavings}:</span> 25% - 99%</p>
-                <p><span className="font-medium">{t.metricsList.errorReduction}:</span> - 45%</p>
+                <p><span className="font-medium">{t.metricsList.processes}:</span> 2+</p>
+                <p><span className="font-medium">{t.metricsList.timeSavings}:</span> 25% - 50%</p>
+                <p><span className="font-medium">{t.metricsList.errorReduction}:</span> - 50%</p>
               </div>
             </section>
           </div>
@@ -203,4 +196,4 @@ const Treeinova = () => {
   );
 };
 
-export default Treeinova;
+export default Sogamax;

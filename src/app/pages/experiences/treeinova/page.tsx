@@ -95,7 +95,7 @@ const technologies = [
   { name: 'SQL & No SQL' },
 ];
 
-const Sogamax = () => {
+const Treeinova = () => {
   const { darkMode } = useTheme();
   const { language } = useLanguage();
   const t = content[language];
@@ -120,7 +120,7 @@ const Sogamax = () => {
           <div className={`p-3 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-white'}`}>
             <Image
               src="/icons/logo/treeinova.png"
-              alt="AutoGlass Group Logo"
+              alt="Tree Inova Logo"
               width={80}
               height={80}
               className="object-contain"
@@ -203,4 +203,4 @@ const Sogamax = () => {
   );
 };
 
-export default Sogamax;
+export default Treeinova;
