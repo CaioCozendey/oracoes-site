@@ -1,13 +1,14 @@
-import UnderConstruction from "@/components/page/doing/page";
-import { MinimalLayout } from "@/components/LayoutWrapper/page";
+"use client";
+
+import BackParticles from "@/components/ParticleBackground/main";
+import UnderConstruction from "@/components/doing/UnderConstruction";
 
 const Projects = () => {
   return (
-    <MinimalLayout>
-      <div>
-        < UnderConstruction />
-      </div>
-    </MinimalLayout>
+    <div>
+      <BackParticles />
+      <UnderConstruction />
+    </div>
   )
 }
 

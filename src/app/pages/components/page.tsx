@@ -1,5 +1,3 @@
-"use client";
- 
 import UnderConstruction from "@/components/doing/UnderConstruction";
 import BackParticles from "@/components/ParticleBackground/main";
 
