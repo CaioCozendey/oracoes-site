@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
@@ -20,6 +20,8 @@ const Navbar = () => {
   const { language, setLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [languageDropdownOpen, setLanguageDropdownOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   const navItems: NavItem[] = [
     {
@@ -73,10 +75,40 @@ const Navbar = () => {
     }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Rolando para baixo
+        setVisible(false);
+      } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
+        // Rolando para cima ou no topo
+        setVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Se o mouse estiver no topo da página (primeiros 100px)
+      if (e.clientY < 100) {
+        setVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [lastScrollY]);
+
   const currentLanguage = languages.find(lang => lang.code === language);
   const getText = (item: { en: string, pt: string }) => item[language];
 
-  // Função para verificar se o item está ativo
   const isActive = (path: string) => {
     if (path === '/') {
       return pathname === path;
@@ -87,10 +119,11 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar Desktop */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 shadow-lg font-titillium-web text-md transition-colors duration-300 ${darkMode
+      <nav className={`fixed top-0 left-0 right-0 z-50 shadow-lg font-titillium-web text-md transition-all duration-300 ${darkMode
         ? 'bg-gray-900 text-white shadow-gray-900 border-gray-700'
         : 'bg-white text-gray-800 shadow-gray-200 border-gray-200'
-        }`}>
+        } ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
+        {/* ... restante do código da navbar permanece igual ... */}
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo/Ícone + Menu Hamburguer (mobile) */}

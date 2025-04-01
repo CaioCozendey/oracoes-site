@@ -18,137 +18,159 @@ import TechCard from '@/components/cards/TechCard';
 import BackParticles from '@/components/ParticleBackground/main';
 import { useTheme } from '@/app/context/ThemeContext';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { TechItem } from '@/utils/types/tech';
 
 const Tech = () => {
   const { darkMode } = useTheme();
   const { language } = useLanguage();
 
-  // Conteúdo multilíngue
   const content = {
     title: {
       en: "My Tech Stack",
       pt: "Minha Stack Tecnológica"
     },
     subtitle: {
-      en: "Proficiency level in each technology I use",
-      pt: "Nível de domínio em cada tecnologia que utilizo"
-    },
-    legend: {
-      en: "Experience levels",
-      pt: "Legenda de níveis de experiência"
-    },
-    levels: {
-      beginner: {
-        en: "Beginner",
-        pt: "Iniciante"
-      },
-      intermediate: {
-        en: "Intermediate",
-        pt: "Intermediário"
-      },
-      advanced: {
-        en: "Advanced",
-        pt: "Avançado"
-      },
-      expert: {
-        en: "Expert",
-        pt: "Especialista"
-      }
+      en: "Technologies I work with and their applications",
+      pt: "Tecnologias que utilizo e suas aplicações"
     }
   };
 
-  // Tecnologias com nomes multilíngues quando necessário
-  const technologies = [
-    // Automação e Data Science
-    { 
-      name: { en: "Python", pt: "Python" }, 
-      experience: 'expert', 
-      icon: SiPython, 
-      color: '#3776AB' 
+  const technologies: TechItem[] = [
+    {
+      name: { en: "Python", pt: "Python" },
+      description: {
+        en: "Versatile language for automation, data analysis and backend",
+        pt: "Linguagem versátil para automação, análise de dados e backend"
+      },
+      icon: SiPython,
+      color: '#3776AB',
+      tag: 'RPA'
     },
-    { 
-      name: { en: "Playwright", pt: "Playwright" }, 
-      experience: 'advanced', 
-      icon: FaRobot, 
-      color: '#2EAD33' 
+    {
+      name: { en: "Playwright", pt: "Playwright" },
+      description: {
+        en: "Modern browser automation for testing and scraping",
+        pt: "Automação moderna de navegadores para testes e scraping"
+      },
+      icon: FaRobot,
+      color: '#2EAD33',
+      tag: 'RPA'
     },
-    { 
-      name: { en: "Selenium", pt: "Selenium" }, 
-      experience: 'advanced', 
-      icon: SiSelenium, 
-      color: '#43B02A' 
+    {
+      name: { en: "Selenium", pt: "Selenium" },
+      description: {
+        en: "Browser automation framework for testing",
+        pt: "Framework para automação de navegadores e testes"
+      },
+      icon: SiSelenium,
+      color: '#43B02A',
+      tag: 'RPA'
     },
-    { 
-      name: { en: "PyAutoGUI", pt: "PyAutoGUI" }, 
-      experience: 'intermediate', 
-      icon: FaRobot, 
-      color: '#FFD43B' 
+    {
+      name: { en: "Pandas", pt: "Pandas" },
+      description: {
+        en: "Powerful data analysis and manipulation library for Python",
+        pt: "Biblioteca poderosa para análise e manipulação de dados em Python"
+      },
+      icon: SiPandas,
+      color: '#3178C6'
     },
-    { 
-      name: { en: "Tesseract OCR", pt: "Tesseract OCR" }, 
-      experience: 'intermediate', 
-      icon: FaRobot, 
-      color: '#0083CA' 
+    {
+      name: { en: "PyAutoGUI", pt: "PyAutoGUI" },
+      description: {
+        en: "Cross-platform GUI automation for mouse/keyboard control",
+        pt: "Automação multiplataforma de GUI para controle de mouse/teclado"
+      },
+      icon: FaRobot,
+      color: '#FFD43B',
+      tag: 'RPA'
     },
-    { 
-      name: { en: "Pandas", pt: "Pandas" }, 
-      experience: 'intermediate', 
-      icon: SiPandas, 
-      color: '#150458' 
+    {
+      name: { en: "Roberty Studio", pt: "Roberty Studio" },
+      description: {
+        en: "Comprehensive platform for building RPA robots",
+        pt: "Plataforma completa para desenvolvimento de robôs voltados para RPA"
+      },
+      icon: "/icons/logo/roberty-studio.png",
+      color: '#FF6B35',
+      tag: 'RPA'
     },
-    
-    // Front-end
-    { 
-      name: { en: "HTML", pt: "HTML" }, 
-      experience: 'expert', 
-      icon: SiHtml5, 
-      color: '#E34F26' 
+    {
+      name: { en: "HTML", pt: "HTML" },
+      description: {
+        en: "Markup language for structuring web content",
+        pt: "Linguagem de marcação para estruturação de conteúdo web"
+      },
+      icon: SiHtml5,
+      color: '#E34F26',
+      tag: 'Frontend'
     },
-    { 
-      name: { en: "CSS", pt: "CSS" }, 
-      experience: 'advanced', 
-      icon: SiCss3, 
-      color: '#1572B6' 
+    {
+      name: { en: "CSS", pt: "CSS" },
+      description: {
+        en: "Styling language for web design and layout",
+        pt: "Linguagem de estilização para design e layout web"
+      },
+      icon: SiCss3,
+      color: '#1572B6',
+      tag: 'Frontend'
     },
-    { 
-      name: { en: "JavaScript", pt: "JavaScript" }, 
-      experience: 'advanced', 
-      icon: SiJavascript, 
-      color: '#F7DF1E' 
+    {
+      name: { en: "Tailwind CSS", pt: "Tailwind CSS" },
+      description: {
+        en: "Utility-first CSS framework for rapid UI development",
+        pt: "Framework CSS utility-first para desenvolvimento rápido de interfaces"
+      },
+      icon: SiTailwindcss,
+      color: '#06B6D4',
+      tag: 'Frontend'
     },
-    { 
-      name: { en: "TypeScript", pt: "TypeScript" }, 
-      experience: 'intermediate', 
-      icon: SiTypescript, 
-      color: '#3178C6' 
+    {
+      name: { en: "JavaScript", pt: "JavaScript" },
+      description: {
+        en: "Dynamic programming language for interactive websites",
+        pt: "Linguagem de programação dinâmica para sites interativos"
+      },
+      icon: SiJavascript,
+      color: '#F7DF1E',
+      tag: 'Frontend'
     },
-    { 
-      name: { en: "Tailwind CSS", pt: "Tailwind CSS" }, 
-      experience: 'advanced', 
-      icon: SiTailwindcss, 
-      color: '#06B6D4' 
+    {
+      name: { en: "TypeScript", pt: "TypeScript" },
+      description: {
+        en: "Typed JavaScript superset for scalable application development",
+        pt: "Superconjunto tipado do JavaScript para desenvolvimento escalável"
+      },
+      icon: SiTypescript,
+      color: '#3178C6',
+      tag: 'Frontend'
     },
-    
-    // Frameworks
-    { 
-      name: { en: "React", pt: "React" }, 
-      experience: 'advanced', 
-      icon: SiReact, 
-      color: '#61DAFB' 
+    {
+      name: { en: "React", pt: "React" },
+      description: {
+        en: "Library for building user interfaces with components",
+        pt: "Biblioteca para construção de interfaces com componentes"
+      },
+      icon: SiReact,
+      color: '#61DAFB',
+      tag: 'Frontend'
     },
-    { 
-      name: { en: "Next.js", pt: "Next.js" }, 
-      experience: 'advanced', 
-      icon: SiNextdotjs, 
-      color: '#000000' 
+    {
+      name: { en: "Next.js", pt: "Next.js" },
+      description: {
+        en: "React framework for server-rendered applications",
+        pt: "Framework React para aplicações renderizadas no servidor"
+      },
+      icon: SiNextdotjs,
+      color: '#ffffff',
+      tag: 'Frontend'
     },
   ];
 
-  // Função auxiliar para pegar texto com base no idioma
-  const getText = (item: { en: string; pt: string }) => item[language];
+  const getText = <T extends { en: string; pt: string }>(item: T): string => item[language];
 
   return (
-    <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <div className='min-h-screen py-12 px-4 sm:px-6 lg:px-8'>
       <BackParticles />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-12">
@@ -165,34 +187,11 @@ const Tech = () => {
             <TechCard
               key={index}
               name={getText(tech.name)}
-              experience={getText(content.levels[tech.experience])}
+              description={getText(tech.description)}
               icon={tech.icon}
               color={tech.color}
-              darkMode={darkMode}
             />
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <div className="inline-flex flex-col items-center gap-2">
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-blue-900 text-blue-200' : 'bg-blue-100 text-blue-800'}`}>
-                {getText(content.levels.beginner)}
-              </span>
-              <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-green-900 text-green-200' : 'bg-green-100 text-green-800'}`}>
-                {getText(content.levels.intermediate)}
-              </span>
-              <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-purple-900 text-purple-200' : 'bg-purple-100 text-purple-800'}`}>
-                {getText(content.levels.advanced)}
-              </span>
-              <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${darkMode ? 'bg-yellow-900 text-yellow-200' : 'bg-yellow-100 text-yellow-800'}`}>
-                {getText(content.levels.expert)}
-              </span>
-            </div>
-            <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-              {getText(content.legend)}
-            </p>
-          </div>
         </div>
       </div>
     </div>

@@ -1,51 +1,75 @@
-// components/cards/TechCard.tsx
 'use client';
 
+import React from 'react';
 import { useTheme } from '@/app/context/ThemeContext';
 import { motion } from 'framer-motion';
-import { IconType } from 'react-icons';
+import Image from 'next/image';
+import { TechIcon } from '@/utils/types/tech';
 
 interface TechCardProps {
   name: string;
-  experience: 'Iniciante' | 'Intermediário' | 'Avançado' | 'Especialista';
-  icon?: IconType;
+  description: string;
+  icon?: TechIcon;
   color?: string;
+  tag?: 'RPA' | 'Frontend';
 }
 
-const experienceColors = {
-  'Iniciante': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-  'Intermediário': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-  'Avançado': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-  'Especialista': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-};
-
-const TechCard = ({ name, experience = 'Intermediário', color = '#3B82F6', icon: Icon }: TechCardProps) => {
+const TechCard = ({
+  name,
+  description,
+  color = '#3B82F6',
+  icon,
+  tag
+}: TechCardProps) => {
   const { darkMode } = useTheme();
+
+  const isImageIcon = (icon: TechIcon): icon is string => {
+    return typeof icon === 'string' &&
+      (icon.startsWith('/') ||
+        /\.(png|jpg|jpeg|gif|svg|webp)$/i.test(icon));
+  };
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className={`rounded-lg p-5 shadow-md border border-gray-200 dark:border-gray-700 flex flex-col ${darkMode ? 'bg-gray-800' : 'bg-white' }`}
+      className={`rounded-lg p-5 shadow-md border border-gray-200 dark:border-gray-900 backdrop-blur-xs flex flex-col ${darkMode ? '' : ''
+        }`}
     >
-      <div className='flex items-center gap-4 mb-3'>
-        {Icon && (
-          <div 
-            className="p-2 rounded-md flex-shrink-0"
-            style={{ 
-              backgroundColor: `${color}20`,
-              color: color
-            }}
-          >
-            <Icon size={20} />
+      {/* Container principal com posição relativa */}
+      <div className="relative">
+        {/* Conteúdo do card */}
+        <div className='flex items-center gap-4'>
+          {icon && (
+            <div
+              className="p-2 rounded-md flex-shrink-0"
+              style={{
+                backgroundColor: `${color}20`,
+                color: color
+              }}
+            >
+              {isImageIcon(icon) ? (
+                <div className="w-5 h-5 relative">
+                  <Image
+                    src={icon}
+                    alt={name}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    unoptimized={icon.startsWith('/icons')}
+                  />
+                </div>
+              ) : (
+                React.createElement(icon, { size: 20 })
+              )}
+            </div>
+          )}
+          <div className="flex-1">
+            <h3 className={`font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+              {name}
+            </h3>
+            <p className={`text-sm mt-1 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              {description}
+            </p>
           </div>
-        )}
-        <h3 className={`font-medium ${darkMode ? 'text-white' : 'text-gray-800'}`}>
-          {name}
-        </h3>
-      </div>
-      
-      <div className="mt-auto">
-        <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${experienceColors[experience]}`}>
-          {experience}
         </div>
       </div>
     </motion.div>
