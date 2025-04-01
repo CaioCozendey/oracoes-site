@@ -1,7 +1,6 @@
 "use client";
 
 import Alert from "@/components/alert/alert-01";
-import UnderConstruction from "@/components/doing/UnderConstruction";
 import BackParticles from "@/components/ParticleBackground/main";
 import { useState } from 'react';
 
