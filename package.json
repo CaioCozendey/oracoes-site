@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "node -e \"try { require('@tailwindcss/oxide').install() } catch (e) { console.log('Oxide install skipped') }\""
   },
   "dependencies": {
     "@tsparticles/engine": "^3.8.1",
