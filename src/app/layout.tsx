@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar/main";
 import Footer from "@/components/Footer/main";
 import BackParticles from "@/components/ParticleBackground/main";
 import { Analytics } from "@vercel/analytics/react";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head >
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
