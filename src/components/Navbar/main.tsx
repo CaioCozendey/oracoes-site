@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
@@ -78,7 +79,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Rolando para baixo
         setVisible(false);
@@ -86,7 +87,7 @@ const Navbar = () => {
         // Rolando para cima ou no topo
         setVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -168,7 +169,14 @@ const Navbar = () => {
                   className={`cursor-pointer flex items-center p-2 rounded-md hover:bg-gray-200 ${darkMode ? 'hover:bg-gray-700' : ''
                     }`}
                 >
-                  <span className="mr-1"><img src={currentLanguage?.icon} alt={currentLanguage?.name} /></span>
+                  <span className="mr-1">
+                    <Image
+                      src={currentLanguage?.icon || '/default-icon.png'} // Fallback opcional
+                      alt={currentLanguage?.name || 'Language icon'}
+                      width={16}  // Largura em pixels
+                      height={16} // Altura em pixels 
+                    />
+                  </span>
                   <ChevronDown size={16} className={`transition-transform ${languageDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
@@ -193,7 +201,14 @@ const Navbar = () => {
                             : 'hover:bg-gray-100'
                           }`}
                       >
-                        <span className="mr-2"><img src={lang.icon} alt={lang.name} /></span>
+                        <span className="mr-2">
+                          <Image
+                            src={lang.icon}
+                            alt={lang.name}
+                            width={16}
+                            height={16}
+                          />
+                        </span>
                         {lang.name}
                       </button>
                     ))}

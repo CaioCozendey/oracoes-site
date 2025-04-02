@@ -79,7 +79,7 @@ export const formatExperiencePeriod = (
     const months = totalMonths % 12;
 
     // Monta o texto da duração
-    let durationParts = [];
+    const durationParts = [];
     if (years > 0) {
       durationParts.push(`${years} ${translations[language].year[years === 1 ? 0 : 1]}`);
     }
