@@ -10,6 +10,7 @@
     "postinstall": "node -e \"try { require('@tailwindcss/oxide').install() } catch (e) { console.log('Oxide install skipped') }\""
   },
   "dependencies": {
+    "@tailwindcss/oxide": "^4.1.1",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/interaction-external-bubble": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
