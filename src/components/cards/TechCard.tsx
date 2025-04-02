@@ -2,16 +2,17 @@
 
 import React from 'react';
 import { useTheme } from '@/app/context/ThemeContext';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { TechIcon } from '@/utils/types/tech';
+import { IconType } from 'react-icons';
 
 interface TechCardProps {
   name: string;
   description: string;
-  icon?: TechIcon;
+  icon?: IconType | string;
   color?: string;
   tag?: 'RPA' | 'Frontend';
+  addClassDark?: string;
+  addClassWhite?: string;
 }
 
 const TechCard = ({
@@ -19,21 +20,25 @@ const TechCard = ({
   description,
   color = '#3B82F6',
   icon,
-  tag
+  addClassDark,
+  addClassWhite
 }: TechCardProps) => {
   const { darkMode } = useTheme();
 
-  const isImageIcon = (icon: TechIcon): icon is string => {
+  const isImageIcon = (icon: IconType | string): icon is string => {
     return typeof icon === 'string' &&
       (icon.startsWith('/') ||
         /\.(png|jpg|jpeg|gif|svg|webp)$/i.test(icon));
   };
 
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      className={`rounded-lg p-5 shadow-md border border-gray-200 dark:border-gray-900 backdrop-blur-xs flex flex-col ${darkMode ? '' : ''
-        }`}
+    <div
+      className={`
+        rounded-lg p-5 shadow-md border border-gray-200 dark:border-gray-900 
+        backdrop-blur-xs flex flex-col transition-transform duration-300 ease-in-out
+        hover:-translate-y-2 hover:shadow-lg
+        ${darkMode ? `${addClassDark}` : `${addClassWhite}`}
+      `}
     >
       {/* Container principal com posição relativa */}
       <div className="relative">
@@ -72,7 +77,7 @@ const TechCard = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

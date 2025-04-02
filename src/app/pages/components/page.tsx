@@ -12,7 +12,8 @@ const componentCategories = [
     en: 'Components',
     pt: 'Componentes',
     items: [
-      { name: 'Loading-01', path: 'loading-01', en: 'Loading', pt: 'Loading' },
+      { name: 'Loadings', path: 'LoadingsView', en: 'Loading', pt: 'Loading' },
+      { name: 'Cards', path: 'CardsView', en: 'Cards', pt: 'Cards' },
     ]
   },
   {
