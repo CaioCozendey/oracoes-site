@@ -76,7 +76,7 @@ const About = () => {
                 {getText('project')}
               </h3>
               <a
-                href="https://wa.me/SEUNUMERO"
+                href="https://wa.me/5522998562641"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-block px-6 py-3 rounded-lg font-medium transition-colors ${darkMode ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white`}

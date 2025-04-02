@@ -55,12 +55,12 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/seu-usuario",
+      url: "https://github.com/caiocozendey",
       icon: <Github size={20} />,
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/seu-perfil",
+      url: "https://www.linkedin.com/in/caio-dias-cozendey-502a1418a/",
       icon: <Linkedin size={20} />,
     },
     {
