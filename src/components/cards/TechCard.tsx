@@ -4,6 +4,7 @@ import React from 'react';
 import { useTheme } from '@/app/context/ThemeContext';
 import Image from 'next/image';
 import { IconType } from 'react-icons';
+import isImageIcon from '@/utils/images/isImagesOrIcon';
 
 interface TechCardProps {
   name: string;
@@ -24,12 +25,6 @@ const TechCard = ({
   addClassWhite
 }: TechCardProps) => {
   const { darkMode } = useTheme();
-
-  const isImageIcon = (icon: IconType | string): icon is string => {
-    return typeof icon === 'string' &&
-      (icon.startsWith('/') ||
-        /\.(png|jpg|jpeg|gif|svg|webp)$/i.test(icon));
-  };
 
   return (
     <div
@@ -55,6 +50,7 @@ const TechCard = ({
               {isImageIcon(icon) ? (
                 <div className="w-5 h-5 relative">
                   <Image
+                    className=''
                     src={icon}
                     alt={name}
                     fill

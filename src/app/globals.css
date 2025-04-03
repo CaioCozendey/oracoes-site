@@ -3,11 +3,12 @@
 
 @import "tailwindcss";
 
-
-/* Google Fonts Class */
 @theme {
+  /* Google Fonts Class */
   --font-titillium-web: "Titillium Web", sans-serif;
+  /* Cores personalizadas */
   --color-primary-blue: #194BFD;
+  --color-gray-930: #0d1223 ;
 }
 
 

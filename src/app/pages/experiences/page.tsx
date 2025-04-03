@@ -176,7 +176,7 @@ const Experiences = () => {
           {experiences[language].map((exp, index) => (
             <ExperienceCard
               key={index}
-              logo={exp.logo}
+              icon={exp.logo}
               company={exp.company}
               period={exp.period}
               position={exp.position}

@@ -81,7 +81,7 @@ const Footer = () => {
   return (
     <footer className={`py-8 mt-auto transition-colors duration-300 ${
       darkMode 
-        ? 'bg-gray-900 text-gray-300 border-gray-800' 
+        ? 'bg-gray-900 text-gray-300 border-t border-gray-800' 
         : 'bg-gray-100 text-gray-800 border-gray-200'
     }`}>
       <div className="container mx-auto px-4">

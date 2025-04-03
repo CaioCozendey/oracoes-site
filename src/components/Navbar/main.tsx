@@ -121,7 +121,7 @@ const Navbar = () => {
     <>
       {/* Navbar Desktop */}
       <nav className={`fixed top-0 left-0 right-0 z-50 shadow-lg font-titillium-web text-md transition-all duration-300 ${darkMode
-        ? 'bg-gray-900 text-white shadow-gray-900 border-gray-700'
+        ? 'bg-gray-900 text-white shadow-gray-930 border-gray-700'
         : 'bg-white text-gray-800 shadow-gray-200 border-gray-200'
         } ${visible ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* ... restante do código da navbar permanece igual ... */}

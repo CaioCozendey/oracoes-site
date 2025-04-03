@@ -40,10 +40,10 @@ const CodeBlock = ({
         )}
         <button
           onClick={copyToClipboard}
-          className="p-2 rounded-md bg-white/80 dark:bg-gray-700/80 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all shadow-sm border dark:border-gray-600 mr-4 cursor-pointer"
+          className={`p-2 rounded-md transition-all shadow-sm border mr-4 cursor-pointer ${darkMode ? 'border-gray-600 bg-gray-700/80 hover:bg-gray-600' : 'bg-gray-200 hover:bg-gray-300 border-gray-300'}`}
           aria-label="Copy code"
         >
-          <Copy size={16} className="text-gray-600 dark:text-gray-300" />
+          <Copy size={16} className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}/>
         </button>
       </div>
       

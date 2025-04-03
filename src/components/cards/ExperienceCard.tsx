@@ -1,11 +1,14 @@
 "use client";
 
 import { useTheme } from "@/app/context/ThemeContext";
+import isImageIcon from "@/utils/images/isImagesOrIcon";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import { IconType } from 'react-icons';
 
 interface ExperienceCardProps {
-  logo: string;
+  icon: IconType | string;
   company: string;
   period: string;
   position: string;
@@ -16,7 +19,7 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard = ({
-  logo,
+  icon,
   company,
   period,
   position,
@@ -34,17 +37,24 @@ export const ExperienceCard = ({
           {/* Logo da Empresa - Container quadrado com altura máxima */}
           <div className="flex-shrink-0 h-full">
             <div className={`p-2 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} group-hover:scale-105 transition-transform ${logoClass || ''} h-full aspect-square flex items-center justify-center`}>
-              <Image
-                src={logo}
-                alt={`${company} logo`}
-                width={80}  // Aumentado para melhor qualidade
-                height={80} // Aumentado para melhor qualidade
-                className='object-contain w-full h-full max-h-[80px]' // Ocupa todo o espaço disponível
-                style={{
-                  maxWidth: '100%',
-                  height: 'auto'
-                }}
-              />
+              {isImageIcon(icon) ? (
+                <div className="w-5 h-5 relative">
+                  <Image
+                    src={icon}
+                    alt={`${company} logo`}
+                    width={80}  // Aumentado para melhor qualidade
+                    height={80} // Aumentado para melhor qualidade
+                    className='object-contain w-full h-full max-h-[80px]' // Ocupa todo o espaço disponível
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto'
+                    }}
+                    unoptimized={icon.startsWith('/icons')}
+                  />
+                </div>
+              ) : (
+                React.createElement(icon, { size: 48 })
+              )}
             </div>
           </div>
 

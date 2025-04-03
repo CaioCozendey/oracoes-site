@@ -43,3 +43,9 @@ next-env.d.ts
 #arquivo de teste
 teste.tsx
 TESTE.tsx
+
+#BUN - ta dando erro no build
+bun.lock
+
+# .env.local
+NEXT_PUBLIC_APP_ENV=staging
